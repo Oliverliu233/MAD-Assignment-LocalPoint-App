@@ -49,3 +49,5 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 }
+chore: delete deprecated firebase config file
+
