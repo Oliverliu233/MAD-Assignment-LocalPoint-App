@@ -44,12 +44,12 @@ class SignInActivity : ComponentActivity() {
             Log.e("FirebaseInit", "Firebase initialization failed in SignInActivity.", e)
         }
 
-        // 自动登录检查逻辑
+       
         if (FirebaseAuth.getInstance().currentUser != null) {
             Log.d("SignInActivity", "User already logged in, navigating to MainActivity.")
             startActivity(Intent(this, MainActivity::class.java))
             finish()
-            return // 提前返回，避免执行后续 setContent
+            return 
         }
         setContent {
             val viewModel: AuthViewModel = viewModel()
@@ -78,9 +78,9 @@ class SignInActivity : ComponentActivity() {
                             } else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                                 Toast.makeText(this@SignInActivity, "Please enter the correct email address", Toast.LENGTH_SHORT).show()
                             } else {
-                                Log.d("SignInActivity", "Calling viewModel.signInWithEmail") // 新增日志
+                                Log.d("SignInActivity", "Calling viewModel.signInWithEmail") 
                                 viewModel.signInWithEmail(email, password)
-                                Log.d("SignInActivity", "Called viewModel.signInWithEmail") // 新增日志
+                                Log.d("SignInActivity", "Called viewModel.signInWithEmail") 
                             }
                         },
 
